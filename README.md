@@ -15,7 +15,7 @@ Check [here](structure_prediction) for details.
   - including 
     - parallel RNA-Ligand docking
     - parallel ligand parsing, and 
-    - data generation
+    - data acquisition from PDB
 
 - Model training
   - run `scoring_model/run_wligand.sh` to train the model in default setting
