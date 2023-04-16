@@ -11,6 +11,9 @@ This workflow is referenced to [DeepFoldRNA](https://www.biorxiv.org/content/10.
 ## Setup RNAalign
 * Download RNAalign program from [Zhang Lab Website](https://seq2fun.dcmb.med.umich.edu//RNA-align/download.html)
 
+## Technical settings
+The jobs were done on DC cluster with total 8 nodes, each has 68 Cores, 272 threads, 200GB RAM, latest CentOS7.
+
 ## Predicting RNA structures using DeepFoldRNA
 An automatic bash script for submiting jobs in batch to clusters is included in this directory. Note that the input fasta files must be named as seq.fasta for all sequences, and been placed in individual folders, for example, if the riboswitch is named as 2cky, then there should be a folder named 2cky, and only contains a filed named "seq.fasta" within this folder, containing the fasta format sequence of the riboswitch.
 
