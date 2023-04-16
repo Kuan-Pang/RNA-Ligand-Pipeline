@@ -10,9 +10,23 @@ Check [here](structure_prediction) for details.
 
 ![](./figs/geo_dl.png)
 
-- Model training
+- Data preparation
+  - check out `scoring_model/processing_ligand/` for details
+  - including 
+    - parallel RNA-Ligand docking
+    - parallel ligand parsing, and 
+    - data generation
 
-- Model evaluation
+- Model training
+  - run `scoring_model/run_wligand.sh` to train the model in default setting
 
 - Experiments
-  
+  - check out `scoring_model/experiments/` for details
+  - including:
+    - method comparison 
+    - discriminative selection experiment
+
+
+  ## Reference
+
+  - Equiformer backbone: Liao, Yi-Lun, and Tess Smidt. "Equiformer: Equivariant graph attention transformer for 3d atomistic graphs." arXiv preprint arXiv:2206.11990 (2022).
