@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while read p;
+do 
+ find ${p} -type f >> complete_list.txt
+done < ../DeepFoldRNA/unique_fasta/final_models.txt

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+while read p; do
+  name=${p:49:4}_${p:60:1}_${p:75:2}
+  ./RNAalign true_structures/${p:49:4}.pdb $p > pbs_outputs/$name.txt
+done < complete_list.txt
+
+
+
