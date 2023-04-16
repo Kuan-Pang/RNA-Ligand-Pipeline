@@ -4,7 +4,7 @@ This is a pipeline developed for screening RNA-ligand interaction. This pipeline
 
 
 ## RNA 3D structure prediction
-Check [here](structure_prediction) for details.
+Detailed workflow and instructions were described in the [structure_prediction](structure_prediction) directory. Check for details.
 
 ## Geometric deep learning based scoring model
 
