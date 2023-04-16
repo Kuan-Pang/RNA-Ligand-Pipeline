@@ -1,0 +1,16 @@
+#PBS -S /bin/bash
+#PBS -j oe
+
+
+input="/home/zhanglab3/syzhang/DeepFoldRNA/unique_fasta/fasta_list.txt" # Path to directory for the list of fasta files saved
+
+while read -r line
+do
+  # The output logs can be saved to the path indicated after -L flag. 
+  # Here, each sequence log would be saved to the logs folder with their riboswitch name indicated as the log filename.
+  submitjob -m 164 -c 8 -w 72  -L "/home/zhanglab3/syzhang/DeepFoldRNA/unique_fasta/logs/${line: -4}.OU" -n ${line: -4} -N dc01 ./prediction.script $line
+done < "$input"
+
+## Command to submit job to DC cluster:
+## submitjob -n DeepFoldRNA_jobs -m 164 -c 8 -w 72 ./job_array.script
+

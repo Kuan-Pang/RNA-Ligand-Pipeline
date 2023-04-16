@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N SND
+#PBS -l nodes=8:ppn=8
+#PBS -l mem=164gb
+
+source scripts/activate_conda_env.sh
+
+export OMP_NUM_THREADS=8
+
+arrayfile=$1
+
+python3 runDeepFoldRNA.py --input_dir ${arrayfile}
+
+## Command to submit job to DC cluster:
+## submitjob -m 164 -c 8 -w 72 -N dc01 ./prediction.script <input_dir>
+

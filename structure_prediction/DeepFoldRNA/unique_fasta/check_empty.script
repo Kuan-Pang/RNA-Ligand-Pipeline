@@ -1,0 +1,42 @@
+#!/bin/sh
+
+## Get the path to finished models of the sequences from fasta_list.txt
+
+while read p; do
+  find $p -type d -name "model_[0-9]" -print >> finished_models.txt
+done < fasta_list.txt
+
+
+## Get the path to the final_model directory for each of the 6 models of each sequence
+
+while read k; do
+  find $k -type d -name "final_models" -print >> final_models.txt
+done <finished_models.txt
+
+
+## Check whether these final_model directories are empty.
+
+while read j; do
+  find $j -maxdepth 0 -empty -exec echo {} is empty. \; >> is_empty.txt
+done <final_models.txt
+
+while read p; do
+  find $p -type d -name "model_[0-9]" -print >> finished_models.txt
+done <fasta_list.txt
+
+
+## Get the path to the final_model directory for each of the 6 models of each sequence
+
+while read k; do
+  find $k -type d -name "final_models" -print >> final_models.txt
+done <finished_models.txt
+
+
+## Check whether these final_model directories are empty.
+
+while read j; do
+  find $j -maxdepth 0 -empty -exec basename {} \; | while read -r file; do echo "${file:0: -13}"; done
+done <final_models.txt
+
+## Delete these models from final_models.txt
+grep -Fvf is_empty.txt final_models.txt | sed '/^\s*$/d' > final_models.txt
